@@ -12,7 +12,7 @@ Main algorithm:
 - Tasks submitted by clients are put into a PriorityBlockingQueue where they are sorted by `localDateTime`
 - Separate task execution thread peeks first item in the queue (waiting for an item if necessary)
 - If it is not yet time to execute the task, thread waits on a monitor for time until task should be executed
-- For the case where a new task arrives while thread waits on monitor, service submit service signals the thread to give it a change to check if new task should be executed earlier.
+- For the case where a new task arrives while thread waits on monitor, service submit service signals the thread to give it a chance to check if new task should be executed earlier.
 
 Implementation notes:
 
